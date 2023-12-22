@@ -2,6 +2,21 @@
 
 {% block content %}
 
-<h1>Tasks</h1>
+<h1>Tasks Not completed</h1>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            {% if task.important %}
+                <h1 style="color:red;">{{ task.title }}</h1>
+            {% else %}
+                <h1>{{ task.title }}</h1>
+            {% endif %}
+            <p>{{ task.description }}</p>
+            <p>{{ task.user.username }}</p>
+
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
